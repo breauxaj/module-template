@@ -6,8 +6,9 @@ class template (
   }
 
   service { $::template::params::template_service:
-    ensure => 'running',
-    enable => true,
+    ensure  => 'running',
+    enable  => true,
+    require => Package[$::template::params::template_package]
   }
 
 }
