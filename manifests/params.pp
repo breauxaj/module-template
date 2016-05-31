@@ -1,16 +1,9 @@
 class template::params {
-  case $::osfamily {
-    'Debian': {
-      case $::operatingsystemmajrelease {
-        '8': {
-          
-        }
-        default: {
-          fail("The ${module_name} module is not supported on an ${::operatingsystem}${::operatingsystemmajrelease} distribution.")
-        }
-      }
+  case $::operatingsystem {
+    'Amazon': {
+
     }
-    'RedHat': {
+    'CentOS', 'RedHat': {
       case $::operatingsystemmajrelease {
         '6': {
           
@@ -19,17 +12,17 @@ class template::params {
           
         }
         default: {
-          fail("The ${module_name} module is not supported on an ${::operatingsystem}${::operatingsystemmajrelease} distribution.")
+          fail("The ${module_name} module is not supported on an ${::operatingsystem} ${::operatingsystemmajrelease} distribution.")
         }
       }
     }
-    'Linux': {
-      case $::operatingsystem {
-        'Amazon': {
-
+    'Debian': {
+      case $::operatingsystemmajrelease {
+        '8': {
+          
         }
         default: {
-          fail("The ${module_name} module is not supported on an ${::operatingsystem} distribution.")
+          fail("The ${module_name} module is not supported on an ${::operatingsystem} ${::operatingsystemmajrelease} distribution.")
         }
       }
     }
