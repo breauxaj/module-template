@@ -1,12 +1,12 @@
-# Class: common::params
+# Class: template::params
 #
 # This class set parameters used in this module
 #
 # Actions:
 #   - Defines numerous parameters used by other classes
 #
-class common::params {
-  $common_package_ensure = 'latest'
+class template::params {
+  $template_package_ensure = 'latest'
 
   case $::operatingsystem {
     'Amazon': {
